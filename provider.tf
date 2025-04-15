@@ -7,8 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = var.resource_group_name
-    storage_account_name = var.storage_account_name
+
+# Azure Storage Account Details
+    resource_group_name  = "arch-xc-ce-training"
+    storage_account_name = "archxccetraining"
     container_name       = "terraform-git-actions"
     key                  = "terraform.tfstate"
   }
