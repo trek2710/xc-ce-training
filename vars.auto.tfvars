@@ -4,6 +4,12 @@ console_url  = "console.ves.volterra.io"
 tenant       = "f5-emea-ent"
 namespace    = "s-archer"
 
+# Project Details
+prefix = "my-thing"
+
+# Azure details
+location     = "uksouth"
+
 # F5 Distributed Cloud LB Details - Per App
 domain                  = "ce-training.archf5.com"
 shortname               = "ce-training"
