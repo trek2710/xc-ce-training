@@ -1,0 +1,39 @@
+name: "Terraform Destroy Pipeline v1"
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'Environment'
+        required: true
+        default: 'dev'
+
+jobs:
+ 
+  terraform-destroy:
+    name: "Destroy Terraform"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v4
+        with:
+          ref: main        
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.11.4
+          terraform_wrapper: false
+          
+      - name: Terraform Init
+        id: init1
+        run: |
+          terraform init \
+          -backend-config="access_key=${{ secrets.AZURE_BACKEND_KEY }}" 
+
+      - name: Terraform Destroy
+        id: destroy1
+        run: terraform destroy -auto-approve -no-color -input=false
+        env:
+          VES_P12_PASSWORD: ${{ secrets.VES_P12_PASSWORD }}
+          # TF_LOG: debug 
