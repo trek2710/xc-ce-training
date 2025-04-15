@@ -1,11 +1,6 @@
 name: "Terraform Destroy Pipeline v1"
 on:
   workflow_dispatch:
-    inputs:
-      env:
-        description: 'Environment'
-        required: true
-        default: 'dev'
 
 jobs:
  
