@@ -16,7 +16,6 @@ terraform {
     # No need to change these values:
     container_name       = "terraform-git-actions"
     key                  = "terraform.tfstate"
-    use_oidc = true
   }
 }
 
