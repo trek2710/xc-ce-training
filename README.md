@@ -26,11 +26,10 @@
 
 6. In the github UI, make sure you are logged in and then navigate to your forked copy of this repo
     -  Click the `Settings` tab >> `Security` >> `Secrets and variables` >> `Actions`
-    -  Create two `New Repository Secret`s: 
-        <!-- - Set `Name` = `AZURE_BACKEND_KEY` and for `Value` use the storage key you saved at the end of step 3 above -->
+    -  Create the following `New Repository Secret`s: 
+        - Set `Name` = `AZURE_BACKEND_KEY` and for `Value` use the storage key you saved at the end of step 3 above
         - Set `Name` = `VES_P12_PASSWORD` and for `Value` use the complex password you saved in step 4 above
         - Set `Name` = `AZURE_CLIENT_ID` and for `Value` use the application (client) ID of the app registration in Azure
         - Set `Name` = `AZURE_TENANT_ID` and for `Value` use the tenant ID of Azure Active Directory where the app registration is defined.
         - Set `Name` = `AZURE_SUBSCRIPTION_ID` and for `Value` use the subscription ID where the app registration is defined.
-
-7. 
+        - Set `Name` = `AZURE_CLIENT_SECRET` and for `Value` use the client secret where the app registration is defined.
