@@ -32,7 +32,8 @@ jobs:
       - name: Terraform Init
         id: init1
         run: |
-          terraform init
+          terraform init \
+          -backend-config="access_key=${{ secrets.AZURE_BACKEND_KEY }}"
 
       - name: Terraform Apply
         id: apply1
