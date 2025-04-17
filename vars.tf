@@ -1,25 +1,42 @@
 locals {
-  api_url = format("https://%s.%s/api", var.tenant, var.console_url)
+  api_url       = format("https://%s.%s/api", var.tenant, var.console_url)
+  f5xc_sms_name = format("%s-site-%s", var.prefix, random_id.id.hex)
+  azs = [
+    for each_az in var.azs_short : format("%s%s", var.location, each_az)
+  ]
 }
 
-# variable "AZURE_CLIENT_ID" {
-#   type    = string
-# }
+variable "azs_short" {
+  description = "Assumes three AZs within region.  Locals above will format the full AZ names based on Region"
+  default     = ["1", "2", "3"]
+}
 
-# variable "AZURE_SUBSCRIPTION_ID" {
-#   type    = string
-# }
+variable "f5xc_sms_node_count" {
+  type = number
+}
 
-# variable "AZURE_TENANT_ID" {
-#   type    = string
-# }
+variable "f5xc_sms_description" {
+  type    = string
+}
 
-# variable "AZURE_CLIENT_SECRET" {
-#   type    = string
-# }
+variable "prefix" {
+  type    = string
+}
+
+variable "f5xc_sms_instance_type" {
+  type        = string
+}
+
+variable "f5xc_sms_storage_account_type" {
+  type        = string
+}
+
+variable "owner" {
+  type = string
+}
 
 variable "console_url" {
-  type    = string
+  type = string
 }
 
 variable "tenant" {
@@ -34,38 +51,6 @@ variable "namespace" {
   type = string
 }
 
-variable "shortname" {
-  type = string
-}
-
-variable "origin_port" {
-  type = string
-}
-
-variable "origin_ip" {
-  type = string
-}
-
-variable "origin_site" {
-  type = string
-}
-
-variable "origin_fqdn" {
-  type = string
-}
-
-variable "origin_k8s_service_name" {
-  type = string
-}
-
-variable "domain" {
-  type = string
-}
-
 variable "location" {
-  type = string
-}
-
-variable "prefix" {
   type = string
 }

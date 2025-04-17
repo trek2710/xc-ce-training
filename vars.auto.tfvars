@@ -5,16 +5,13 @@ tenant       = "f5-emea-ent"
 namespace    = "s-archer"
 
 # Project Details
-prefix = "my-thing"
+prefix = "arch-azure-smsv2-vt-prov"
+
+# F5 Distributed Cloud CE SMSv2 Details
+f5xc_sms_node_count = 1
+f5xc_sms_description = "Arch Azure smsv2 site created with Terraform"
 
 # Azure details
-location     = "uksouth"
-
-# F5 Distributed Cloud LB Details - Per App
-domain                  = "ce-training.archf5.com"
-shortname               = "ce-training"
-origin_k8s_service_name = "ce-training.dc1-f5-demo"
-origin_fqdn             = ""
-origin_ip               = ""
-origin_port             = 80
-origin_site             = "my-site"
+location = "uksouth"
+f5xc_sms_instance_type = "Standard_DS4_v2"
+f5xc_sms_storage_account_type = "Standard_LRS"

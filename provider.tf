@@ -5,7 +5,7 @@ terraform {
       version = "0.11.43"
     }
     azurerm = {
-      version = "4.26.0"
+      version = "3.11.0"
     }
   }
 
@@ -14,8 +14,8 @@ terraform {
     resource_group_name  = "arch-xc-ce-training"
     storage_account_name = "archxccetraining"
     # No need to change these values:
-    container_name       = "terraform-git-actions"
-    key                  = "terraform.tfstate"
+    container_name = "terraform-git-actions"
+    key            = "terraform.tfstate"
   }
 }
 
