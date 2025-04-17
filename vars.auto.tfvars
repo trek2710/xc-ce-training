@@ -6,6 +6,7 @@ namespace    = "s-archer"
 
 # Project Details
 prefix = "arch-azure-smsv2-vt-prov"
+owner  = "arch"
 
 # F5 Distributed Cloud CE SMSv2 Details
 f5xc_sms_node_count = 1
