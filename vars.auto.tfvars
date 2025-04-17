@@ -5,7 +5,7 @@ tenant       = "f5-emea-ent"
 namespace    = "s-archer"
 
 # Project Details
-prefix = "arch-azure-smsv2-vt-prov"
+prefix = "arch-azure-smsv2-ce-training"
 owner  = "arch"
 
 # F5 Distributed Cloud CE SMSv2 Details
