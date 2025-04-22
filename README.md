@@ -1,5 +1,10 @@
 # xc-ce-training
 
+Requirements!
+
+vscode
+git
+
 1. Fork this repo to your githib account
 
 2. Clone the repo to your local machine
@@ -45,3 +50,14 @@
         - Set `Name` = `ARM_TENANT_ID` and for `Value` use the tenant ID obtained in step 3 above.
         - Set `Name` = `ARM_SUBSCRIPTION_ID` and for `Value` use the subscription ID obtained in step 3 above.
         - Set `Name` = `ARM_CLIENT_SECRET` and for `Value` use the client secret obtained in step 3 above.
+
+8. At the CLI, cd into the cloned folder e.g. `cd xc-ce-training` and then push your updated config to your git origin:
+    - `git add .` or if you want to be specific `git add provider.tf vars.auto.tfvars`
+    - `git commit -m "<insert your message here e.g. updated vars>"`
+    - `git push` - this should trigger GitHub Actions to try your first deployment.
+9. Review the configuration of your SMSv2 site in the XC console and your VM in Azure.
+10. Delete your SMSv2 site in the XC console and your VM in Azure.
+11. Use the ClickOps method to deploy a new CE, with the same settings as the original: 
+    - Navigate to https://docs.cloud.f5.com/docs-v2
+    - Scroll down and click `Multi-Cloud Network Connect`
+    - From the left menu >> `How To` >> `Site Management` >> `Deploy Secure Mesh Site v2 in Azure (ClickOps)`
