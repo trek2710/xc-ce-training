@@ -8,7 +8,7 @@ resource "volterra_securemesh_site_v2" "site" {
   enable_ha               = false
   labels = {
     # Unhash the following block if you want to manage your own key, but make sure you change the `key` value
-    (volterra_known_label_key.key.key) = (volterra_known_label.label.value)
+    #(volterra_known_label_key.key.key) = (volterra_known_label.label.value)
     ("virtual-site-terraform") = (volterra_known_label.label.value)
     "ves.io/provider"                  = "ves-io-AZURE"
   }
@@ -192,6 +192,7 @@ resource "azurerm_network_interface_security_group_association" "inside_security
 # }
 
 resource "volterra_known_label" "label" {
+  # Unhash the following block if you want to manage your own key, but make sure you change the `key` value
   # key       = volterra_known_label_key.key.key
   key        = "virtual-site-terraform"
   namespace = "shared"
@@ -203,6 +204,7 @@ resource "volterra_virtual_site" "ce" {
   namespace = "shared"
 
   site_selector {
+    # Unhash the following block if you want to manage your own key, but make sure you change the `key` value
     # expressions = [format("%s = %s", volterra_known_label_key.key.key, volterra_known_label.label.value)]
     expressions = [format("%s = %s", "virtual-site-terraform", volterra_known_label.label.value)]
   }
