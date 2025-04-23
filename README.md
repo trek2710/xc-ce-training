@@ -5,7 +5,7 @@ Requirements!
 vscode
 git
 
-1. Fork this repo to your githib account
+1. Fork this repo to your githib account and on the 'Actions' tab, make sure that GitHub Actions are enabled, by acknowledgeing the terms.
 
 2. In VScode, open your working folder and `git clone <git url>` the repo to your local machine
 
