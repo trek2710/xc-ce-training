@@ -30,7 +30,7 @@ git
     - After creation navigate to your Azure Storage Account and on the left menu, select `Data Storage` >> `Containers`
         - Click `+ Container` to create a new container and give it the name `terraform-git-actions` and then click `create`
     - Again, on the left menu, select `Security + networking` >> `Access Keys`
-        - Click `Show` the `Key` and make a note because we will use this in step 6 below
+        - Click `Show` the `Key` (on one of the keys) and make a note of the key because we will use this in step 6 below
 
 5. Login to XC and navigate to `Administration Workspace` >> `Personal Management` >> `Credentials` >> `Add a Credential`
     - Create an `API Certificate` credential with a complex (important for this training!) password and short expiry
@@ -44,7 +44,7 @@ git
 7. In the github UI, make sure you are logged in and then navigate to your forked copy of this repo
     -  Click the `Settings` tab >> `Security` >> `Secrets and variables` >> `Actions`
     -  Create the following `New Repository Secret`s: 
-        - Set `Name` = `AZURE_BACKEND_KEY` and for `Value` use the storage key you saved at the end of step 3 above
+        - Set `Name` = `AZURE_BACKEND_KEY` and for `Value` use the storage key you saved at the end of step 4 above
         - Set `Name` = `VES_P12_PASSWORD` and for `Value` use the complex password you saved in step 4 above
         - Set `Name` = `ARM_CLIENT_ID` and for `Value` use the application (client) ID from the app registration in step 3 above
         - Set `Name` = `ARM_TENANT_ID` and for `Value` use the tenant ID obtained in step 3 above.
