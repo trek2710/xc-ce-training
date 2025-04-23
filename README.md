@@ -7,7 +7,7 @@ git
 
 1. Fork this repo to your githib account
 
-2. Clone the repo to your local machine
+2. In VScode, open your working folder and `git clone <git url>` the repo to your local machine
 
 3. You need to configure API access to your Azure account:
     - within the Azure `Mircosoft Entra ID`, navigate to `Manage` >> `App Registration` and create a new 'App'.
@@ -37,7 +37,7 @@ git
         - Make a note of the complex password because you will use it in step 6 below
     - Copy `.p12` file to your cloned repo folder
 
-6. Update variables and values:
+6. in VScode, Update variables and values:
     - Rename `vars.auto.tfvars.example` to `vars.auto.tfvars` and modify values to match your deployment
     - In `provider.tf` update the values for `resource_group_name` and `storage_account_name` to match the values you used to create the Storage Account in step 3.
 
