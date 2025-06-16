@@ -255,15 +255,13 @@ resource "azurerm_lb_probe" "lb_probe" {
   port            = 65450
 }
 
-# data "http" "myip" {
-#   url = "https://ifconfig.me"
-#   request_headers = {
-#     User-Agent = "curl/7.68.0"
-#   }
-# }
+data "http" "myip" {
+  url = "https://ifconfig.me"
+  # request_headers = {
+  #   User-Agent = "curl/7.68.0"
+  # }
+}
 
-# Create the Network Security group Module to associate with BIGIP-outside-Nic
-#
 module "outside-network-security-group" {
   source              = "Azure/network-security-group/azurerm"
   resource_group_name = azurerm_resource_group.rg.name
@@ -274,9 +272,6 @@ module "outside-network-security-group" {
   }
 }
 
-#
-# Create the Network Security group Module to associate with BIGIP-inside-Nic
-#
 module "inside-network-security-group-public" {
   source              = "Azure/network-security-group/azurerm"
   resource_group_name = azurerm_resource_group.rg.name
@@ -311,8 +306,8 @@ resource "azurerm_network_security_rule" "outside_allow_ssh" {
   source_port_range          = "*"
   destination_port_range     = "22"
   destination_address_prefix = "*"
-  # source_address_prefixes     = ["${data.http.myip.response_body}/32"]
-  source_address_prefixes     = ["90.255.235.127/32"]
+  source_address_prefixes     = ["${data.http.myip.response_body}/32"]
+  # source_address_prefixes     = ["90.255.235.127/32"]
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = format("%s-outside-nsg-%s", var.prefix, random_id.id.hex)
   depends_on                  = [module.outside-network-security-group]

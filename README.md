@@ -1,21 +1,28 @@
 # xc-ce-training
 
-Requirements!
+## Prerequisites
 
-vscode
-git
+- VScode: Install VSCode 
+- Git CLI: install the git CLI tools
+- GitHub: Create or validate that you have a GiHub Account and can login.
+    - Test that you can git clone and git push (this will test that your git creds work in the CLI)
+- Azure: Validate that you have access to the correct subscription.
+    - Open the Azure Portal (https://portal.azure.com/) and login with SSO.  Search for Subscriptions in the search box at the top of the screen.
+    - If you don't have any subscription listed, please open a ServiceNow Ticket to get access.
+
+## Lab Guide
 
 1. Fork this repo to your githib account and on the 'Actions' tab, make sure that GitHub Actions are enabled, by acknowledgeing the terms.
 
 2. In VScode, open your working folder and `git clone <git url>` the repo to your local machine
 
 3. You need to configure API access to your Azure account:
-    - within the Azure `Mircosoft Entra ID`, navigate to `Manage` >> `App Registration` and create a new 'App'.
-    - within the new 'App' you just created, create a new Client Secret.  The value must be saved, as you cannot retrieve it again:  
-        - this value is your `ARM_CLIENT_SECRET`.
-    - the 'App' overview page will provide:
-        - the 'Application (Client) ID' is your `ARM_CLIENT_ID`
-        - the 'Directory (Tenant) ID' is your `ARM_TENANT_ID`
+    - within the Azure `Mircosoft Entra ID`, navigate to `Manage` >> `App Registration` and create a new `App`.
+    - within the new `App` you just created, create a new Client Secret.  The `value` must be saved, as you cannot retrieve it again:  
+        - the `value` is your `ARM_CLIENT_SECRET`.
+    - the `App` overview page will provide:
+        - the `Application (Client) ID` is your `ARM_CLIENT_ID`
+        - the `Directory (Tenant) ID` is your `ARM_TENANT_ID`
     - 'Expose an API' by adding a 'Scope' and a 'Client Application', with the latter referencing your 'Application (Client) ID'.
     - if you type 'subscriptions' into the search box at the top of the Azure Portal, you can find your Subscription ID:
         - the 'Subscription ID' is your `ARM_SUBSCRIPTION_ID`
@@ -55,6 +62,9 @@ git
     - `git add .` or if you want to be specific `git add provider.tf vars.auto.tfvars`
     - `git commit -m "<insert your message here e.g. updated vars>"`
     - `git push` - this should trigger GitHub Actions to try your first deployment.
+
+    - ! If you have authentication issues pushing to GiHub and it asks you to generate a personal access token, visit `https://github.com/settings/personal-access-tokens` and create a `fine-grained token` with `read-write permissions` for `Content`.  When prompted by `git push` command, use your github username and your `personal access token` as your password.   
+
 9. Review the configuration of your SMSv2 site in the XC console and your VM in Azure.
 10. Delete your SMSv2 site in the XC console and your VM in Azure.
 11. Use the ClickOps method to deploy a new CE, with the same settings as the original: 
