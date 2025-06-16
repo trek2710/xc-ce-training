@@ -23,6 +23,10 @@ variable "prefix" {
   type    = string
 }
 
+variable "home_ip_prefix" {
+  type    = string
+}
+
 variable "f5xc_sms_instance_type" {
   type        = string
 }

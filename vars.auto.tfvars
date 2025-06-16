@@ -5,8 +5,10 @@ tenant       = "f5-emea-ent"
 namespace    = "s-archer"
 
 # Project Details
-prefix = "arch-azure-smsv2-ce-training"
-owner  = "arch"
+prefix         = "arch-azure-smsv2-ce-training"
+owner          = "arch"
+# home_ip_prefix sets the source IP allow rule for SSH access to the CEs. 
+home_ip_prefix = "90.255.235.127/32" 
 
 # F5 Distributed Cloud CE SMSv2 Details
 f5xc_sms_node_count = 1
